@@ -54,14 +54,14 @@ export default function NavBar({ CartWidget }) {
                 {colorMode === "light" ? (
                   <Image
                     maxH={55}
-                    src="../../src/assets/chopin.png"
+                    src="chopin.png"
                     alt="CHOPIN"
                     title="CHOPIN"
                   />
                 ) : (
                   <Image
                     maxH={55}
-                    src="../../src/assets/chopin_w.png"
+                    src="chopin_w.png"
                     alt="CHOPIN"
                     title="CHOPIN"
                   />
