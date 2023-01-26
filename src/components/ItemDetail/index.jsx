@@ -22,7 +22,7 @@ const ItemDetail = ({ productos }) => {
 
   return (
     <Flex align="center" justify="center" direction="column" p={8}>
-      <Box maxW="sm" borderWidth="1px" rounded="lg" overflow="hidden">
+      <Box maxW="md" borderWidth="1px" rounded="lg" overflow="hidden">
         <Image src={image} alt={title} objectFit="cover" />
         <Box p="6">
           <Heading as="h4" size="md">

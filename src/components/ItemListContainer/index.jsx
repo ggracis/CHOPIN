@@ -37,6 +37,7 @@ function ItemListContainer({ productos, greeting }) {
           )
           .map((producto) => (
             <ProductCard
+              key={producto.id}
               id={producto.id}
               image={producto.image}
               title={producto.title}

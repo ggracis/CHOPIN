@@ -13,7 +13,7 @@ function App() {
   const [productos, setProductos] = useState([]);
 
   const getProductos = () => {
-    axios.get("https://fakestoreapi.com/products").then((response) => {
+    axios.get("http://fakestoreapi.com/products").then((response) => {
       console.log(response.data);
       setProductos(response.data);
     });
