@@ -1,13 +1,16 @@
 import { SimpleGrid, Box, Heading } from "@chakra-ui/react";
 import ProductCard from "../ProductCard";
 import { useLocation } from "react-router-dom";
+import { useContext } from "react";
+import { productosContext } from "../../App";
 
-function ItemListContainer({ productos, greeting }) {
+function ItemListContainer({ greeting }) {
+  const productos = useContext(productosContext);
   const mapCategories = {
-    mujer: "women's clothing",
-    hombre: "men's clothing",
-    accesorios: "jewelery",
-    electronica: "electronics",
+    herramientas: "Herramientas",
+    deportes: "Deportes",
+    moda: "Moda",
+    salud: "Salud",
   };
 
   const categoria = useLocation().pathname.split("/")[1] || "todos";
@@ -32,8 +35,7 @@ function ItemListContainer({ productos, greeting }) {
         {productos
           .filter(
             (producto) =>
-              producto.category === categoriaEstado ||
-              categoriaEstado === "todos"
+              producto.category === categoria || categoriaEstado === "todos"
           )
           .map((producto) => (
             <ProductCard
@@ -43,6 +45,9 @@ function ItemListContainer({ productos, greeting }) {
               title={producto.title}
               description={producto.description}
               price={producto.price}
+              categoriaProducto={producto.category}
+              rating={producto.rating}
+              stock={producto.stock}
             />
           ))}
       </SimpleGrid>

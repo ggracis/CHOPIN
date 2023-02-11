@@ -1,4 +1,6 @@
 // Tarjeta de producto reutilizable
+import React, { useContext } from "react";
+import { StarIcon } from "@chakra-ui/icons";
 import {
   Card,
   CardBody,
@@ -10,32 +12,78 @@ import {
   ButtonGroup,
   Button,
   Divider,
+  Box,
 } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
-const ProductCard = ({ id, image, title, description, price }) => {
+import { useAddItem } from "../../hooks/useAddItem";
+
+const formatter = new Intl.NumberFormat("es-AR", {
+  style: "currency",
+  currency: "ARS",
+});
+
+const ProductCard = ({
+  categoriaProducto,
+  id,
+  image,
+  title,
+  price,
+  rating,
+  stock,
+}) => {
+  const addItem = useAddItem();
+
   return (
-    <div className="App">
-      <Card maxW="sm">
-        <CardBody>
-          <NavLink to={`/producto/${id - 1}`}>
-            <Image src={image} alt={title} title={title} borderRadius="lg" />
+    <div>
+      <Card maxW="sm" shadow="md" borderWidth="1px" borderRadius="lg">
+        <CardBody p="6">
+          <NavLink to={`/producto/${categoriaProducto}/${id}`}>
+            <Image src={image} alt={title} title={title} borderRadius="md" />
           </NavLink>
           <Stack mt="6" spacing="3">
-            <Heading size="md">{title}</Heading>
-            <Text>{description}</Text>
-            <Text color="blue.600" fontSize="2xl">
-              ${price}
-            </Text>
+            <NavLink to={`/producto/${categoriaProducto}/${id}`}>
+              <Heading size="md">{title}</Heading>
+            </NavLink>
+
+            <Box display="flex" mt="2" alignItems="center">
+              <Text fontWeight="bold" fontSize="xl" color="green.400">
+                {formatter.format(price)}
+              </Text>
+            </Box>
+
+            <Divider />
+
+            <Box display="flex" mt="2" alignItems="center">
+              {Array(5)
+                .fill("")
+                .map((_, i) => (
+                  <StarIcon
+                    key={i}
+                    size="12px"
+                    color={i < rating ? "teal.500" : "gray.300"}
+                  />
+                ))}
+              <Text ml="2" color="gray.500" fontSize="sm">
+                {stock} en stock
+              </Text>
+            </Box>
           </Stack>
         </CardBody>
+
         <Divider />
-        <CardFooter>
+
+        <CardFooter d="flex" justifyContent="space-between" p="6">
           <ButtonGroup spacing="2">
-            <Button variant="solid" colorScheme="blue">
-              Buy now
-            </Button>
-            <Button variant="ghost" colorScheme="blue">
-              Add to cart
+            {/*       <Button size="sm" variant="outline" colorScheme="teal">
+              Comprar
+            </Button> */}
+            <Button
+              size="sm"
+              variant="outline"
+              colorScheme="teal"
+              onClick={() => addItem({ id }, 1, parseInt(price))}
+            >
+              Agregar al carrito
             </Button>
           </ButtonGroup>
         </CardFooter>

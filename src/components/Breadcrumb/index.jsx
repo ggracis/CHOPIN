@@ -1,33 +1,47 @@
-import { Box, Text } from "@chakra-ui/react";
+import { ChevronRightIcon } from "@chakra-ui/icons";
+import { BreadcrumbItem, BreadcrumbLink, Breadcrumb } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import { useContext } from "react";
+import { productosContext } from "../../App";
 
-const Breadcrumb = () => {
-  const [breadcrumb, setBreadcrumb] = useState([]);
-  const location = useLocation();
+const BreadcrumbComp = () => {
+  const [breadcrumb, setBreadcrumbComp] = useState([]);
+
+  const { pathname } = useLocation();
+  const paths = pathname.split("/");
+  const idProducto = paths.pop();
+
+  const productos = useContext(productosContext);
+  const producto = productos.find((producto) => producto.id == idProducto);
+  const nombreProducto = producto ? producto.title : "Producto no encontrado";
+  const categoria = paths[2];
 
   useEffect(() => {
-    const pathname = location.pathname;
-    const paths = pathname.split("/");
-    let newBreadcrumb = [];
-
-    if (paths.length === 2) {
-      newBreadcrumb = ["Inicio"];
-    } else if (paths.length === 3) {
-      newBreadcrumb = ["Inicio", paths[2]];
-    } else if (paths.length === 4) {
-      newBreadcrumb = ["Inicio", paths[2], paths[3]];
-    }
-    setBreadcrumb(newBreadcrumb);
-  }, [location]);
+    const newBreadcrumb = [
+      { name: "Inicio", href: "/" },
+      { name: categoria, href: `/${categoria}` },
+      { name: nombreProducto, href: `/producto/${categoria}/${idProducto}` },
+    ];
+    setBreadcrumbComp(newBreadcrumb);
+  }, [pathname]);
 
   return (
-    <Box>
+    <Breadcrumb
+      ml={25}
+      p={5}
+      spacing="8px"
+      separator={<ChevronRightIcon color="gray.500" />}
+    >
       {breadcrumb.map((item, index) => (
-        <Text key={index}>{item}</Text>
+        <BreadcrumbItem key={index}>
+          <BreadcrumbLink>
+            <NavLink to={item.href}>{item.name}</NavLink>
+          </BreadcrumbLink>
+        </BreadcrumbItem>
       ))}
-    </Box>
+    </Breadcrumb>
   );
 };
 
-export default Breadcrumb;
+export default BreadcrumbComp;
