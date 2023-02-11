@@ -66,6 +66,8 @@ const CheckOut = () => {
   const [isEmailsMatching, setIsEmailsMatching] = useState(true);
   const [isInvalid, setIsInvalid] = useState(true);
 
+  let idUsuario = "";
+
   useEffect(() => {
     if (userId) {
       const ref = doc(db, "users", userId);
@@ -90,6 +92,7 @@ const CheckOut = () => {
     if (!userQuerySnapshot.empty) {
       console.log("Usuario encontrado: ", userQuerySnapshot.docs[0].id);
       setUserId(userQuerySnapshot.docs[0].id);
+      idUsuario = userQuerySnapshot.docs[0].id;
 
       // Actualizar usuario
       console.log("Actualizando usuario: ", userQuerySnapshot.docs[0].id);
@@ -113,6 +116,7 @@ const CheckOut = () => {
       });
 
       setUserId(newDocRef.id);
+      idUsuario = newDocRef.id;
       console.log("UserId creado: ", newDocRef.id);
     }
   };
@@ -136,7 +140,7 @@ const CheckOut = () => {
       console.log("Creando carrito...");
       const newDocRef = await addDoc(collection(db, "carts2"), {
         items: cart,
-        user: userId,
+        user: idUsuario,
         timestamp: serverTimestamp(),
       });
       setCartId(newDocRef.id);

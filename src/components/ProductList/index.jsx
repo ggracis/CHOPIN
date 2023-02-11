@@ -42,7 +42,6 @@ const ProductList = () => {
               m="2"
               variant="outline"
               colorScheme="teal"
-              aria-label="Send email"
               icon={<DeleteIcon />}
               onClick={() => handleDelete(product.id)}
             />
