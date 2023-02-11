@@ -64,7 +64,7 @@ function App() {
       >
         <NavBar CartWidget={CartWidget} />
 
-        <Container width="100%" maxWidth="100vw" pl={0} pr={0} pt={10}>
+        <Container width="100%" maxWidth="100vw" pl={0} pr={0} pt={5}>
           {loading && <Spinner />}
           <Routes>
             <Route path="*" element={<Navigate to="/" />} />

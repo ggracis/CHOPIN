@@ -185,7 +185,7 @@ const CheckOut = () => {
   };
 
   return (
-    <Box maxW="700px" mx="auto" mt="7em">
+    <Box maxW="700px" mx="auto" mt="2em" mb="10em">
       <Stack spacing="10px">
         {
           /* Listado de productos */
@@ -196,6 +196,7 @@ const CheckOut = () => {
                 <Image
                   src={producto.image}
                   boxSize="90px"
+                  objectFit="cover"
                   borderRadius="5px"
                   alt={producto.title}
                   title={producto.title}
@@ -204,15 +205,11 @@ const CheckOut = () => {
                   <NavLink
                     to={`/producto/${producto.category}/${product.item.id}`}
                   >
-                    <Text
-                      fontWeight="bold"
-                      fontSize="xs"
-                      color={useColorModeValue("gray.100", "gray.300")}
-                    >
+                    <Text fontWeight="bold" fontSize="xs">
                       {producto.title}
                     </Text>
                   </NavLink>
-                  <Text color={useColorModeValue("gray.200", "gray.500")}>
+                  <Text>
                     {formatter.format(product.price)} x {product.amount}
                   </Text>
                 </Box>
@@ -220,7 +217,6 @@ const CheckOut = () => {
                 <IconButton
                   m="2"
                   variant="outline"
-                  colorScheme={useColorModeValue("whiteAlpha", "teal")}
                   icon={<DeleteIcon />}
                   onClick={() => removeFromCart(product.item.id)}
                   title="Eliminar producto"
@@ -231,8 +227,7 @@ const CheckOut = () => {
         }
         <Divider />
         <Flex justify="space-between">
-          <Text>Total</Text>
-          <Text>{formatter.format(totalDinero)}</Text>
+          <Text>Total {formatter.format(totalDinero)}</Text>
         </Flex>
       </Stack>
       <Divider />

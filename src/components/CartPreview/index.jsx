@@ -52,7 +52,7 @@ const CartPreview = () => {
         max-width="90vw"
       >
         <Flex align="center" justify="space-between">
-          <Text m={2}>
+          <Text m={2} color={useColorModeValue("gray.100", "gray.300")}>
             <b>Total:</b> {formatter.format(totalDinero)}
           </Text>
           <ButtonGroup>
@@ -89,6 +89,7 @@ const CartPreview = () => {
                     <Image
                       src={producto.image}
                       boxSize="50px"
+                      objectFit="cover"
                       borderRadius="5px"
                       alt={producto.title}
                       title={producto.title}
