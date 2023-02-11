@@ -20,8 +20,8 @@ const ProductList = () => {
   };
 
   const handleDelete = async (id) => {
-    await deleteDoc(doc(db, "products", id));
-    notify("info", `Producto con ID ${id} eliminado`);
+    //   await deleteDoc(doc(db, "products", id));
+    notify("info", `Producto con ID ${id} eliminado (falso)`);
     getProductos();
   };
 
