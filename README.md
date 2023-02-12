@@ -1,6 +1,6 @@
-[![CHOPIN](https://chopin-git-preentrega3gracis-ggracis.vercel.app/chopin.png)](https://chopin-lyart.vercel.app/){:target="_blank"}
+[![CHOPIN](https://chopin-git-preentrega3gracis-ggracis.vercel.app/chopin.png)](https://chopin-lyart.vercel.app/)
 
-[Ir a CHOPIN](https://chopin-lyart.vercel.app/){:target="_blank"}
+[Ir a CHOPIN](https://chopin-lyart.vercel.app/)
 
 > Bienvenidos al proyecto CHOPIN, una aplicación de compras en línea que te
 > ofrece una amplia variedad de productos a precios increíblemente atractivos.
@@ -10,7 +10,7 @@
 > necesitas en un solo lugar! ¡No esperes más y comienza a hacer tus compras en
 > CHOPIN hoy mismo!
 
-[Ver demo en video](https://www.youtube.com/watch?v=yaU5CJW0Bj8){:target="_blank"}
+[Ver demo en video](https://www.youtube.com/watch?v=yaU5CJW0Bj8)
 
 
 ## Características principales
