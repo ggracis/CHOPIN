@@ -13,7 +13,6 @@
     "@chakra-ui/react": "^2.4.5",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
-    "axios": "^1.2.2",
     "firebase": "^9.16.0",
     "framer-motion": "^6.5.1",
     "react": "^18.2.0",
@@ -21,8 +20,7 @@
     "react-icons": "^4.7.1",
     "react-router-dom": "^6.6.2",
     "react-toastify": "^9.1.1",
-    "react-use-window-size": "^1.0.1",
-    "routes": "^2.1.0"
+    "react-use-window-size": "^1.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",

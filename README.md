@@ -48,6 +48,12 @@ confirmación.
   web.
 - **React Toastify** - React Toastify es una biblioteca de React que permite
   implementar notificaciones en una aplicación web.
+- **React Use Window Size** - React Use Window Size es una biblioteca de React
+  que permite obtener el tamaño de la ventana del navegador.
+
+### Captura de como se ve la base de datos en Firestore
+
+![Firebase](https://chopin-git-preentrega3gracis-ggracis.vercel.app/FirebaseFirestore.jpg)
 
 ### Cómo contribuir
 
