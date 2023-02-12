@@ -10,7 +10,8 @@
 > necesitas en un solo lugar! ¡No esperes más y comienza a hacer tus compras en
 > CHOPIN hoy mismo!
 
-[![video demo](https://www.youtube.com/watch?v=yaU5CJW0Bj8)]
+[Ver demo en video](https://www.youtube.com/watch?v=yaU5CJW0Bj8)
+
 
 ## Características principales
 
