@@ -55,34 +55,26 @@ export default function NavBar({ CartWidget }) {
             as={IconButton}
             aria-label="Options"
             icon={<HamburgerIcon />}
-            variant="outline"
+            mr={2}
+            size="l"
+            p={5}
           />
           <MenuList>
             <MenuItem>
-              <NavLink className={styles.enlaces} to="/">
-                Inicio
-              </NavLink>
+              <NavLink to="/">Inicio</NavLink>
             </MenuItem>
 
             <MenuItem>
-              <NavLink className={styles.enlaces} to="/herramientas">
-                Herramientas
-              </NavLink>
+              <NavLink to="/herramientas">Herramientas</NavLink>
             </MenuItem>
             <MenuItem>
-              <NavLink className={styles.enlaces} to="/deportes">
-                Deportes y fitness
-              </NavLink>
+              <NavLink to="/deportes">Deportes y fitness</NavLink>
             </MenuItem>
             <MenuItem>
-              <NavLink className={styles.enlaces} to="/moda">
-                Moda
-              </NavLink>
+              <NavLink to="/moda">Moda</NavLink>
             </MenuItem>
             <MenuItem>
-              <NavLink className={styles.enlaces} to="/salud">
-                Salud y belleza
-              </NavLink>
+              <NavLink to="/salud">Salud y belleza</NavLink>
             </MenuItem>
           </MenuList>
         </Menu>
