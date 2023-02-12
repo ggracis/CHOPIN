@@ -14,7 +14,6 @@ import {
   InputLeftElement,
   Stack,
   Text,
-  useColorModeValue,
 } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 import { cartContext, productosContext } from "../../App";
@@ -41,6 +40,7 @@ const CheckOut = () => {
     cart,
     cartId,
     userId,
+    setCart,
     setCartId,
     setUserId,
     userNombre,
@@ -133,7 +133,7 @@ const CheckOut = () => {
       });
       notify(
         "success",
-        `¡Gracias por tu compra, ${nombre}! 🎉 - Id de compra: ${cartId}`
+        `¡Gracias por tu compra, ${nombre}! 🎉 - Id de compra: ${cartId} - Nos pondremos en contacto!`
       );
     } else {
       // Crear carrito
@@ -147,9 +147,14 @@ const CheckOut = () => {
       console.log("CartId creado: ", newDocRef.id);
       notify(
         "success",
-        `¡Gracias por tu compra, ${nombre}! 🎉 - Id de compra: ${newDocRef.id}`
+        `¡Gracias por tu compra, ${nombre}! 🎉 - Id de compra: ${newDocRef.id} - Nos pondremos en contacto!`
       );
     }
+  };
+
+  const clearCart = () => {
+    setCart([]);
+    setCartId(null);
   };
 
   const handleSubmit = async (e) => {
@@ -166,6 +171,7 @@ const CheckOut = () => {
     } else if (!isInvalid) {
       await saveUser(userId);
       await saveCart(cartId);
+      clearCart();
     } else {
       console.log("No se puede mandar el formulario");
       setIsInvalid(true);

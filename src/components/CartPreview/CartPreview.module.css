@@ -1,0 +1,9 @@
+.cartpreview{/* From https://css.glass */
+    background: rgba(0, 0, 0, 0.8);
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    box-shadow: 0 4px 10px rgba(1, 54, 31, 0.9);
+    backdrop-filter: blur(12.1px);
+    -webkit-backdrop-filter: blur(12.1px);
+    border: 1px solid rgba(0, 0, 0, 1);
+}

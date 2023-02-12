@@ -1,3 +1,6 @@
+.navbar{ background: rgba(0, 0, 0, 0.7);     box-shadow: 0 4px 10px rgba(11, 95, 59, 0.2);
+  backdrop-filter: blur(12.1px); -webkit-backdrop-filter: blur(12.1px); border: 1px solid rgba(0, 0, 0, 0.4);
+}
 
 .enlaces {
     display: inline-grid;

@@ -15,8 +15,9 @@ import {
   Heading,
   Image,
   WrapItem,
+  IconButton,
 } from "@chakra-ui/react";
-import { MoonIcon, SunIcon } from "@chakra-ui/icons";
+import { HamburgerIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { NavLink } from "react-router-dom";
 import styles from "./NavBar.module.css";
 import { useContext } from "react";
@@ -46,17 +47,60 @@ export default function NavBar({ CartWidget }) {
       </nav>
     );
   };
+  const MobileNav = () => {
+    return (
+      <nav>
+        <Menu>
+          <MenuButton
+            as={IconButton}
+            aria-label="Options"
+            icon={<HamburgerIcon />}
+            variant="outline"
+          />
+          <MenuList>
+            <MenuItem>
+              <NavLink className={styles.enlaces} to="/">
+                Inicio
+              </NavLink>
+            </MenuItem>
+
+            <MenuItem>
+              <NavLink className={styles.enlaces} to="/herramientas">
+                Herramientas
+              </NavLink>
+            </MenuItem>
+            <MenuItem>
+              <NavLink className={styles.enlaces} to="/deportes">
+                Deportes y fitness
+              </NavLink>
+            </MenuItem>
+            <MenuItem>
+              <NavLink className={styles.enlaces} to="/moda">
+                Moda
+              </NavLink>
+            </MenuItem>
+            <MenuItem>
+              <NavLink className={styles.enlaces} to="/salud">
+                Salud y belleza
+              </NavLink>
+            </MenuItem>
+          </MenuList>
+        </Menu>
+      </nav>
+    );
+  };
+
   const { userNombre, userApellido } = useContext(cartContext);
 
   return (
     <Box
-      bg={useColorModeValue("blue.700", "gray.900")}
       px={4}
       position="sticky"
       top={0}
       width="100%"
       zIndex={1}
       pb={2}
+      className={styles.navbar}
     >
       <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
         <Flex align="center" mr={5}>
@@ -82,6 +126,9 @@ export default function NavBar({ CartWidget }) {
         </Flex>
         <Flex display={{ base: "none", md: "flex" }} ml={10}>
           <DesktopNav />
+        </Flex>
+        <Flex display={{ base: "flex", md: "none" }}>
+          <MobileNav />
         </Flex>
 
         <Flex alignItems={"center"}>

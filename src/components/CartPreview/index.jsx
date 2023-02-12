@@ -18,6 +18,7 @@ import { ArrowDownIcon, ArrowUpIcon, DeleteIcon } from "@chakra-ui/icons";
 import useRemoveFromCart from "../../hooks/useRemoveFromCart";
 import useWindowSize from "react-use-window-size";
 import { NavLink } from "react-router-dom";
+import styles from "./CartPreview.module.css";
 
 const CartPreview = () => {
   const productos = useContext(productosContext);
@@ -29,7 +30,7 @@ const CartPreview = () => {
   });
   const { removeFromCart } = useRemoveFromCart();
   const windowSize = useWindowSize();
-  const cartHeight = cart.length * 80 + 100;
+  const cartHeight = cart.length * 60 + 10;
   const shouldShowScroll = windowSize.height * 0.3 < cartHeight;
 
   const [isCartOpen, setIsCartOpen] = useState(true);
@@ -42,33 +43,28 @@ const CartPreview = () => {
   return (
     cart.length > 0 && (
       <Box
-        borderRadius="10px"
-        padding="20px"
-        boxShadow="2px 2px 10px rgba(0, 0, 0, 0.1)"
-        bg={useColorModeValue("blue.700", "gray.900")}
+        className={styles.cartpreview}
+        padding="10px"
         position="fixed"
         bottom="0px"
         right="20px"
+        marginLeft="20px"
         max-width="90vw"
+        zIndex="1"
       >
         <Flex align="center" justify="space-between">
-          <Text m={2} color={useColorModeValue("gray.100", "gray.300")}>
+          <Text m={2} color={"gray.300"}>
             <b>Total:</b> {formatter.format(totalDinero)}
           </Text>
           <ButtonGroup>
             <IconButton
               m="2"
-              variant="outline"
-              colorScheme={useColorModeValue("whiteAlpha", "teal")}
+              colorScheme={"teal"}
               icon={isCartOpen ? <ArrowDownIcon /> : <ArrowUpIcon />}
               onClick={() => setIsCartOpen(!isCartOpen)}
               title={`${isCartOpen ? "Ocultar" : "Mostrar"} carrito`}
             />
-            <Button
-              m="2"
-              variant="outline"
-              colorScheme={useColorModeValue("whiteAlpha", "teal")}
-            >
+            <Button m="2" colorScheme={"teal"}>
               <NavLink to="/checkout">Finalizar compra</NavLink>
             </Button>
           </ButtonGroup>
@@ -95,21 +91,16 @@ const CartPreview = () => {
                       title={producto.title}
                     />
                     <Box ml="10px">
-                      <Text
-                        fontWeight="bold"
-                        fontSize="xs"
-                        color={useColorModeValue("gray.100", "gray.300")}
-                      >
+                      <Text fontWeight="bold" fontSize="xs" color={"gray.300"}>
                         {producto.title}
                       </Text>
-                      <Text color={useColorModeValue("gray.200", "gray.500")}>
+                      <Text color={"gray.500"}>
                         {formatter.format(product.price)} x {product.amount}
                       </Text>
                     </Box>
 
                     <IconButton
                       m="2"
-                      variant="outline"
                       colorScheme={useColorModeValue("whiteAlpha", "teal")}
                       icon={<DeleteIcon />}
                       onClick={() => removeFromCart(product.item.id)}
