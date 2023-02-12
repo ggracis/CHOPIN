@@ -1,6 +1,5 @@
-# CHOPIN
-
-![CHOPIN](https://chopin-git-preentrega3gracis-ggracis.vercel.app/chopin.png)
+[![CHOPIN](https://chopin-git-preentrega3gracis-ggracis.vercel.app/chopin.png)](https://chopin-lyart.vercel.app/)
+[Ir a CHOPIN](https://chopin-lyart.vercel.app/)
 
 > Bienvenidos al proyecto CHOPIN, una aplicación de compras en línea que te
 > ofrece una amplia variedad de productos a precios increíblemente atractivos.
